@@ -1,7 +1,7 @@
 TED [![npm version](https://badge.fury.io/js/ted.svg)](http://badge.fury.io/js/ted)
 ===
 
-A simple configuration manager.
+A simple configuration manager. `npm install --save ted`.
 
 ## Setup
 Simply add a `config` folder to the root of your project containing a file called `config.json`. The keys to the file will match your `NODE_ENV` environment varibale or it will default to `development`. An example file may be as follows:
