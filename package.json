@@ -12,7 +12,7 @@
   ],
   "author": "Walter Carvalho (@waltfy)",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "lodash": "^3.5.0"
   }
 }

@@ -5,19 +5,14 @@
  * to this folder, there you can simply add attributes which will then be overriden
  * to the resulting object. e.g overrides.json:
  *
- * { "api_url": "https://api.bloomstaging.tk" }
- *
  * process.env.NODE_ENV - String representing the current environment, defaults to development.
  * @returns the matching object from config.json
  */
 var _ = require('lodash');
 var OVERRIDES;
 
-var PROJECT_DIR = __dirname;
-console.log("PROJECT_DIR:", PROJECT_DIR);
-
 try {
-  OVERRIDES = require('./overrides.json'); // attempts to load overrides.json which is ignored by git
+  OVERRIDES = require('../../overrides.json'); // attempts to load overrides.json which is ignored by git
 } catch (err) {
   OVERRIDES = {};
 } finally {
