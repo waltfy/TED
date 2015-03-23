@@ -9,12 +9,27 @@
  * @returns the matching object from config.json
  */
 var _ = require('lodash');
+var path = require('path');
+
+var DEFAULT_PATH = '../../config';
 var OVERRIDES;
+var CONFIG;
+var ENV = process.env.NODE_ENV || 'development';
+
+var log = console.log.bind(console, '[TED]:');
 
 try {
-  OVERRIDES = require('../../overrides.json'); // attempts to load overrides.json which is ignored by git
+  OVERRIDES = require(path.join(DEFAULT_PATH, 'overrides.json')); // attempts to load overrides.json which is ignored by git
 } catch (err) {
   OVERRIDES = {};
+  log('You did not provide any overrides.');
+}
+
+try {
+  CONFIG = _.assign(require(path.join(DEFAULT_PATH, 'config.json'))[ENV], OVERRIDES);
+} catch (err) {
+  CONFIG = {};
+  log('Could not read config.json! Have you created a config folder at the root of your project? Try again.');
 } finally {
-  module.exports = _.assign(require('./config.json')[process.env.NODE_ENV || 'development'], OVERRIDES);
+  module.exports = CONFIG; 
 }
