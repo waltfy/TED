@@ -8,7 +8,7 @@
  * process.env.NODE_ENV - String representing the current environment, defaults to development.
  * @returns the matching object from config.json
  */
-var _ = require('lodash');
+var assign = require('lodash.assign');
 var path = require('path');
 
 var DEFAULT_PATH = '../../config';
@@ -26,10 +26,10 @@ try {
 }
 
 try {
-  CONFIG = _.assign(require(path.join(DEFAULT_PATH, 'config.json'))[ENV], OVERRIDES);
+  CONFIG = assign(require(path.join(DEFAULT_PATH, 'config.json'))[ENV], OVERRIDES);
 } catch (err) {
   CONFIG = {};
-  log('Could not read config.json! Have you created a config folder at the root of your project? Try again.');
+  log('Could not read ./config/config.json! Have you created the config folder at the root of your project? Try again.');
 } finally {
   module.exports = CONFIG; 
 }
