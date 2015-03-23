@@ -1,6 +1,6 @@
 {
   "name": "ted",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A simple configuration manager.",
   "main": "index.js",
   "scripts": {
