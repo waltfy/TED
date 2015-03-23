@@ -18,7 +18,7 @@ Simply add a `config` folder to the root of your project containing a file calle
 }
 ```
 
-You may provide an override file `config/config.json`:
+You may provide an override file `config/overrides.json` (**NOTE**: overrides file will override the attributes of the current environment using [lodash.assign](https://lodash.com/docs#assign)):
 
 ```js
 // overrides.json
